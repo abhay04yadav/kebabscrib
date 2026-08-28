@@ -115,7 +115,7 @@ button { font-family: var(--kc-font-body); }
 }
 
 /* ---- menu controls stick below the nav ---- */
-.kc-menu-controls { top: 60px; }
+.kc-menu-controls { top: 70px; }
 @media (max-width: 920px) {
   .kc-menu-controls { top: 98px; }
 }

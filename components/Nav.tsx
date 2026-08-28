@@ -145,7 +145,7 @@ export default function Nav({ active }: { active: "home" | "menu" }) {
           alignItems: "center",
           gap: 16,
           padding: "0 32px",
-          height: scrolled ? 60 : 92,
+          height: scrolled ? 70 : 110,
           transition: "height var(--kc-motion)",
         }}
       >
@@ -166,7 +166,7 @@ export default function Nav({ active }: { active: "home" | "menu" }) {
             src={LOGO}
             alt="Kebab’s Crib"
             style={{
-              height: scrolled ? 42 : 72,
+              height: scrolled ? 52.5 : 90,
               width: "auto",
               objectFit: "contain",
               display: "block",
@@ -292,7 +292,7 @@ export default function Nav({ active }: { active: "home" | "menu" }) {
             <img
               src={LOGO}
               alt="Kebab’s Crib"
-              style={{ height: 40, width: "auto", objectFit: "contain", display: "block" }}
+              style={{ height: 50, width: "auto", objectFit: "contain", display: "block" }}
             />
           </Link>
 

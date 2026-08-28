@@ -1,6 +1,5 @@
 "use client";
 
-import Link from "next/link";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { SLIDES } from "@/lib/content";
 import { ChevronLeft, ChevronRight } from "./icons";
@@ -103,23 +102,6 @@ export default function HeroCarousel() {
               >
                 {s.name}
               </span>
-              <div>
-                <Link
-                  href={`/menu?dish=${encodeURIComponent(s.dish)}`}
-                  className="kc-dark kc-plain"
-                  style={{
-                    fontSize: 16,
-                    color: "var(--kc-surface)",
-                    background: "var(--kc-primary)",
-                    borderRadius: "var(--kc-radius)",
-                    padding: "14px 24px",
-                    display: "inline-block",
-                    transition: "background var(--kc-motion)",
-                  }}
-                >
-                  Order now — AED {s.price}
-                </Link>
-              </div>
             </div>
           </div>
         ))}
