@@ -1,0 +1,121 @@
+@font-face {
+  font-family: "Wildy Sans";
+  src: url("/fonts/WildySans.otf") format("opentype");
+  font-weight: 400 700;
+  font-display: swap;
+}
+
+:root {
+  --kc-bg: #FDF6EE;
+  --kc-surface: #FFFFFF;
+  --kc-nav: #CD9B51;
+  --kc-primary: #006244;
+  --kc-accent: #F7A890;
+  --kc-gold: #F4CF4B;
+  --kc-maroon: #9B343C;
+  --kc-text: #242424;
+  --kc-border: #E5E5E5;
+  --kc-primary-70: rgba(0, 98, 68, .7);
+  --kc-primary-60: rgba(0, 98, 68, .6);
+  --kc-primary-50: rgba(0, 98, 68, .5);
+  --kc-primary-40: rgba(0, 98, 68, .4);
+  --kc-primary-12: rgba(0, 98, 68, .12);
+  --kc-primary-08: rgba(0, 98, 68, .08);
+  --kc-primary-dark: #005038;
+  --kc-font-display: "Wildy Sans", var(--font-parkinsans), sans-serif;
+  --kc-font-body: var(--font-parkinsans), sans-serif;
+  --kc-radius-sm: 6px;
+  --kc-radius: 10px;
+  --kc-radius-lg: 20px;
+  --kc-motion: 200ms ease-out;
+  --kc-motion-overlay: 320ms ease-out;
+}
+
+* { box-sizing: border-box; }
+
+html, body { max-width: 100vw; }
+
+body {
+  margin: 0;
+  background: var(--kc-bg);
+  color: var(--kc-text);
+  font-family: var(--kc-font-body);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+a { color: var(--kc-primary-70); text-decoration: none; }
+a:hover { color: var(--kc-primary); text-decoration: underline; }
+
+button { font-family: var(--kc-font-body); }
+
+/* ---- keyframes from the design ---- */
+@keyframes kcMarquee { from { transform: translateX(0) } to { transform: translateX(-50%) } }
+@keyframes kcMarqueeReverse { from { transform: translateX(-50%) } to { transform: translateX(0) } }
+@keyframes kcBob { 0%, 100% { transform: translateY(0) } 50% { transform: translateY(-3px) } }
+@keyframes kcChew { 0%, 100% { transform: scaleY(1) } 50% { transform: scaleY(.45) } }
+@keyframes kcNom { 0%, 100% { transform: rotate(-30deg) translateY(0) } 50% { transform: rotate(-30deg) translateY(-2.5px) } }
+@keyframes kcAntenna { 0%, 100% { opacity: 1 } 50% { opacity: .35 } }
+@keyframes kcDot { 0%, 60%, 100% { opacity: .25; transform: translateY(0) } 30% { opacity: 1; transform: translateY(-3px) } }
+@keyframes kcPanelIn { from { transform: translateY(16px) scale(.98); opacity: 0 } to { transform: translateY(0) scale(1); opacity: 1 } }
+@keyframes kcDrawerIn { from { transform: translateX(24px); opacity: .6 } to { transform: translateX(0); opacity: 1 } }
+@keyframes kcTeaser { from { transform: translateX(10px); opacity: 0 } to { transform: translateX(0); opacity: 1 } }
+@keyframes kcShimmer { 0% { background-position: -320px 0 } 100% { background-position: 320px 0 } }
+@keyframes kcZoom { from { transform: scale(1.06) } to { transform: scale(1) } }
+@keyframes kcFadeIn { from { opacity: 0 } to { opacity: 1 } }
+@keyframes kcSheetUp { from { transform: translateY(32px); opacity: 0 } to { transform: translateY(0); opacity: 1 } }
+
+/* marquee rows pause on hover */
+.kc-marquee:hover > div { animation-play-state: paused; }
+
+/* hover helpers (inline styles cannot express :hover) */
+.kc-lift { transition: transform var(--kc-motion); }
+.kc-lift:hover { transform: translateY(-1px); }
+.kc-lift-2:hover { transform: translateY(-2px); }
+.kc-zoom img { transition: transform var(--kc-motion); }
+.kc-zoom:hover img { transform: scale(1.03); }
+.kc-soft:hover { background: var(--kc-primary-08); }
+.kc-chip { transition: all var(--kc-motion); }
+.kc-chip:hover { border-color: var(--kc-primary); background: var(--kc-primary-08); }
+.kc-dark:hover { background: var(--kc-primary-dark); }
+.kc-plain, .kc-plain:hover { text-decoration: none; }
+
+.kc-scroll-x { overflow-x: auto; scrollbar-width: thin; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+}
+
+/* ---- responsive nav ---- */
+.kc-nav-mobile { display: none; }
+@media (max-width: 920px) {
+  .kc-nav-desktop { display: none !important; }
+  .kc-nav-mobile { display: block; }
+}
+
+/* ---- responsive helpers ---- */
+.kc-hide-mobile { display: initial; }
+@media (max-width: 720px) {
+  .kc-hide-mobile { display: none !important; }
+}
+
+/* ---- item configurator layout ---- */
+.kc-config-grid {
+  display: grid;
+  grid-template-columns: 42% 58%;
+  align-items: stretch;
+}
+@media (max-width: 720px) {
+  .kc-config-grid { grid-template-columns: 1fr; }
+  .kc-config-grid > div:first-child { height: 220px; }
+}
+
+/* ---- menu controls stick below the nav ---- */
+.kc-menu-controls { top: 60px; }
+@media (max-width: 920px) {
+  .kc-menu-controls { top: 98px; }
+}
